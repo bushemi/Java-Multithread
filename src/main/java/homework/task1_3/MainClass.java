@@ -34,9 +34,8 @@ public class MainClass {
             System.out.println("boom");
             System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
             synchronized (MONITOR) {
-                Thread.sleep(500);
                 MONITOR.notify();
-                Thread.sleep(500);
+                MONITOR.wait();
             }
         }
 
