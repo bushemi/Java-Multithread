@@ -12,17 +12,16 @@ public class FirstTask {
         System.out.println("thread.getState() = " + thread.getState());
         thread.start();
 
-
 //        RUNNABLE,
         System.out.println("thread.getState() = " + thread.getState());
 
 //        BLOCKED
         thread.waitMonitor(thread);
+        thread.setWaiting(false);
 
 //        WAITING,
         thread.waitMonitor(thread);
         Thread.sleep(50);
-
 
 //        TIMED_WAITING,
         System.out.println("thread.getState() = " + thread.getState());

@@ -5,8 +5,12 @@ import java.time.LocalDateTime;
 import static homework.task1_1.FirstTask.MONITOR;
 
 class MyThread extends Thread {
-
+private boolean isWaiting = true;
     MyThread() {
+    }
+
+    public void setWaiting(boolean waiting) {
+        isWaiting = waiting;
     }
 
     public void run() {
@@ -34,17 +38,16 @@ class MyThread extends Thread {
 
     void waitMonitor(Thread thread) throws InterruptedException {
         synchronized (MONITOR) {
-            Thread.sleep(600);
+            Thread.sleep(500);
             System.out.println("thread.getState() = " + thread.getState());
             MONITOR.notify();
         }
     }
 
     void blockMonitor() throws InterruptedException {
-        while (true) {
+        while (isWaiting) {
             MONITOR.wait();
             synchronized (MONITOR) {
-
                 return;
             }
         }
