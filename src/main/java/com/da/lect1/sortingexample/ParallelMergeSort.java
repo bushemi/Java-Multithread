@@ -7,7 +7,7 @@ import java.util.concurrent.RecursiveAction;
 public class ParallelMergeSort extends RecursiveAction {
 
     private static final int SORT_THRESHOLD = 3;
-    //private static final int SORT_THRESHOLD = 30;
+//    private static final int SORT_THRESHOLD = 30;
 
     private final int[] values;
     private final int from;
